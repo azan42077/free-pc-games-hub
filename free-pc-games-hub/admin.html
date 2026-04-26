@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Free PC Games Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>Admin Panel</h1>
+      <p>Add game metadata for the static site demo.</p>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="admin-panel">
+      <h2>Add Game</h2>
+      <p>This demo saves a draft to localStorage for preview only. For production, connect to a backend or update <code>games.json</code>.</p>
+      <input id="name" placeholder="Game Name">
+      <input id="image" placeholder="Image URL">
+      <input id="download" placeholder="Download Link">
+      <button onclick="saveGame()">Save Draft</button>
+      <pre id="output"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Free PC Games Hub</p>
+  </footer>
+
+  <script>
+    function saveGame() {
+      const name = document.getElementById("name").value.trim();
+      const image = document.getElementById("image").value.trim();
+      const download = document.getElementById("download").value.trim();
+
+      if (!name || !image || !download) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      const draft = { name, image, download };
+      localStorage.setItem("gameDraft", JSON.stringify(draft));
+      document.getElementById("output").textContent = JSON.stringify(draft, null, 2);
+      alert("Draft saved. Update games.json or connect a backend to publish.");
+    }
+  </script>
+</body>
+</html>

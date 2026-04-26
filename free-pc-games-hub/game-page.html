@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Details - Free PC Games Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>🎮 Free PC Games Hub</h1>
+      <p>Game details and download access.</p>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </header>
+
+  <main class="detail-page">
+    <section class="game-detail">
+      <img id="game-image" src="" alt="Game cover">
+      <div class="game-info">
+        <h2 id="game-title">Loading...</h2>
+        <p id="game-description"></p>
+        <button id="download-button">Download Now</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Free PC Games Hub</p>
+  </footer>
+
+  <script>
+    const games = {
+      gta5: {
+        name: "GTA V",
+        image: "https://via.placeholder.com/520x300?text=GTA+V",
+        description: "Open-world action game with fast downloads.",
+        download: "https://your-shortlink.com/gta"
+      },
+      minecraft: {
+        name: "Minecraft",
+        image: "https://via.placeholder.com/520x300?text=Minecraft",
+        description: "Creative sandbox adventure for all ages.",
+        download: "https://your-shortlink.com/minecraft"
+      },
+      valorant: {
+        name: "Valorant",
+        image: "https://via.placeholder.com/520x300?text=Valorant",
+        description: "Competitive tactical shooter with secure download links.",
+        download: "https://your-shortlink.com/valorant"
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get("game");
+    const game = games[key];
+
+    if (!game) {
+      document.getElementById("game-title").innerText = "Game not found";
+      document.getElementById("game-description").innerText = "Please return to the games list and choose a valid title.";
+      document.getElementById("download-button").style.display = "none";
+    } else {
+      document.getElementById("game-title").innerText = game.name;
+      document.getElementById("game-image").src = game.image;
+      document.getElementById("game-image").alt = game.name;
+      document.getElementById("game-description").innerText = game.description;
+      document.getElementById("download-button").onclick = () => {
+        window.open(game.download, "_blank");
+        setTimeout(() => alert("Download started!"), 1500);
+      };
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+[
+  {
+    "key": "gta5",
+    "name": "GTA V",
+    "image": "https://via.placeholder.com/520x300?text=GTA+V",
+    "description": "Action-packed open-world game.",
+    "download": "https://your-shortlink.com/gta"
+  },
+  {
+    "key": "minecraft",
+    "name": "Minecraft",
+    "image": "https://via.placeholder.com/520x300?text=Minecraft",
+    "description": "Creative sandbox building adventure.",
+    "download": "https://your-shortlink.com/minecraft"
+  },
+  {
+    "key": "valorant",
+    "name": "Valorant",
+    "image": "https://via.placeholder.com/520x300?text=Valorant",
+    "description": "Tactical free-to-play shooter.",
+    "download": "https://your-shortlink.com/valorant"
+  }
+]
